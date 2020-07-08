@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path
+from django.contrib.staticfiles.views import serve
+
+def return_static(request, path, insecure=True, **kwargs):
+    return serve(request, path, insecure, **kwargs)
 
 urlpatterns = [
+    re_path(r'^static/(?P<path>.*)$', return_static, name='static'),
     path('', admin.site.urls),
 ]
