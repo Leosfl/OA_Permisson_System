@@ -80,23 +80,28 @@ WSGI_APPLICATION = 'Auther_Manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'oa_django',
         'USER':'root',
-        'PASSWORD':'sfl123456',
-        'HOST':'127.0.0.1',
-        'PORT':'3306'
+        'PASSWORD':'root',
+        'HOST':'10.11.61.112',
+        'PORT':'3306',
+        'OPTIONS':{
+              "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+          }
     },
     'auth_db':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ytkoa',
         'USER': 'root',
-        'PASSWORD': 'sfl123456',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'PASSWORD': 'root',
+        'HOST': '10.11.61.112',
+        'PORT': '3306',
+        'OPTIONS': {
+              "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+          }
     }
 }
 
