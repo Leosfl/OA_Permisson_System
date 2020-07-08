@@ -2,40 +2,52 @@ from django.contrib import admin
 
 from .models import Oafinance, Oaother, Oahr, Oaapprover, Oaexecutives, Oaadmin
 
+class ReadonlyFieldsMixin(object):
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return super(ReadonlyFieldsMixin, self).get_readonly_fields(request, obj)
+        else:
+            return tuple()
 
-class OafinanceAdmin(admin.ModelAdmin):
+class OafinanceAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
     list_display = ("ldap", 'name')
+    readonly_fields = ('ldap',)
     list_per_page = 15
 
 
-class OaapproverAdmin(admin.ModelAdmin):
+class OaapproverAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
     list_display = ('ldap', 'name', "leave", "dimission")
+    readonly_fields = ('ldap',)
     list_per_page = 15
 
 
-class OaotherAdmin(admin.ModelAdmin):
+class OaotherAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
+    readonly_fields = ('ldap',)
     list_display = ("ldap", "name", "qr_code_auth", "password_auth", "add_ldap_auth")
     list_per_page = 15
 
 
-class OahrAdmin(admin.ModelAdmin):
+class OahrAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
+    readonly_fields = ('ldap',)
     list_display = ("ldap", "name", "company", "exportstaff", "confirmentry", "cancel_ack_leave_auth")
     list_per_page = 15
 
 
-class OaexecutivesAdmin(admin.ModelAdmin):
+class OaexecutivesAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
     list_display = ("ldap", "name")
+    readonly_fields = ('ldap',)
     list_per_page = 15
 
 
-class OaadminAdmin(admin.ModelAdmin):
+class OaadminAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     search_fields = ("ldap", 'name')
     list_display = ("ldap", 'name')
+    readonly_fields = ('ldap',)
     list_per_page = 15
 
 
