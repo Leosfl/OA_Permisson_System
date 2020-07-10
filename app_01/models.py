@@ -23,12 +23,12 @@ class Oaexecutives(models.Model):
     name = models.CharField('姓名', max_length=255, blank=False, null=True)
 
     def __str__(self):
-        return "执行权限表---->" + str(self.name)
+        return "HRBP管理表---->" + str(self.name)
 
     class Meta:
         managed = False
         db_table = 'oaexecutives'
-        verbose_name_plural = '执行权限管理'
+        verbose_name_plural = 'HRBP管理'
 
 
 class Oafinance(models.Model):
@@ -36,12 +36,12 @@ class Oafinance(models.Model):
     name = models.CharField('姓名', max_length=255, blank=False, null=True)
 
     def __str__(self):
-        return "财政权限表---->" + str(self.name)
+        return "财务权限表---->" + str(self.name)
 
     class Meta:
         managed = False
         db_table = 'oafinance'
-        verbose_name_plural = '财政权限管理'
+        verbose_name_plural = '财务权限管理'
 
 
 class Oahr(models.Model):
