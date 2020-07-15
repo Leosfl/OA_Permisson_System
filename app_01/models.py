@@ -92,3 +92,15 @@ class Oaadmin(models.Model):
         managed = False
         db_table = 'oaadmin'
         verbose_name_plural = '管理员权限管理'
+
+class OaPosition(models.Model):
+    # id = models.IntegerField("id",primary_key=True)
+    name = models.CharField("职位名称",unique=True,blank=False,max_length=100)
+
+    def __str__(self):
+        return "职位名称表---->" + str(self.name)
+
+    class Meta:
+        managed=False
+        db_table='oa_position'
+        verbose_name_plural = '职位管理'

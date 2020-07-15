@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Oafinance, Oaother, Oahr, Oaapprover, Oaexecutives, Oaadmin
+from .models import Oafinance, Oaother, Oahr, Oaapprover, Oaexecutives, Oaadmin,OaPosition
 
 class ReadonlyFieldsMixin(object):
     def get_readonly_fields(self, request, obj=None):
@@ -50,6 +50,10 @@ class OaadminAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     readonly_fields = ('ldap',)
     list_per_page = 15
 
+class OaPositionAdmin(admin.ModelAdmin):
+    list_display = ('id','name')
+    list_per_page = 15
+    search_fields = ('name',)
 
 admin.site.register(Oahr, OahrAdmin)
 admin.site.register(Oaother, OaotherAdmin)
@@ -57,6 +61,7 @@ admin.site.register(Oafinance, OafinanceAdmin)
 admin.site.register(Oaapprover, OaapproverAdmin)
 admin.site.register(Oaexecutives, OaexecutivesAdmin)
 admin.site.register(Oaadmin, OaadminAdmin)
+admin.site.register(OaPosition,OaPositionAdmin)
 # from django.contrib import admin
 
 # Register your models here.
