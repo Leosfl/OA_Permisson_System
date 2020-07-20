@@ -16,7 +16,7 @@ class OaConditionAdmin(admin.ModelAdmin):
 
 
 class OaTransferringAdmin(admin.ModelAdmin):
-    list_display = ('id', 'route')
+    list_display = ('id', 'route','route_map',)
     list_per_page = 15
 
 

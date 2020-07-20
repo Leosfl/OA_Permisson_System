@@ -41,10 +41,13 @@ def workfid_to_route():
         result[key] = route[value]
     return tuple(result)
 
-# def get_id_group():
-#     sql_from_oaapprovergroup = "select id,groupName from oa_approver_group"
-#     cursur.execute(sql_from_oaapprovergroup)
-#     oaapprovergroup = dict(cursur.fetchall())
-#     oaapprovergroup[0] = '结束'
-#     return oaapprovergroup.items()
+def trans_route(route):
+    cursur = creat_of_mysql()
+    sql_from_oaapprovergroup = "select id,groupName from oa_approver_group"
+    cursur.execute(sql_from_oaapprovergroup)
+    oaapprovergroup = dict(cursur.fetchall())
+    oaapprovergroup[0] = '结束'
+    route_list = route.split("-")
+    return '-'.join([oaapprovergroup[int(r)] for r in route_list])
+
 

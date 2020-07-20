@@ -50,6 +50,12 @@ class OaTransferring(models.Model):
     def __str__(self):
         return "审批流程管理---->"+str(self.id)
 
+    def route_map(self):
+        for r in str(self.route).split():
+            return choice_map.trans_route(str(r))
+
+    route_map.short_description = '对应审批流程'
+
     class Meta:
         managed = False
         verbose_name_plural="审批流程管理"
