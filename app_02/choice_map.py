@@ -50,4 +50,24 @@ def trans_route(route):
     route_list = route.split("-")
     return '-'.join([oaapprovergroup[int(r)] for r in route_list])
 
+def get_second_type():
+    cursur = creat_of_mysql()
+    sql_from_oafeetype = "SELECT DISTINCT(`subject`)from oa_fee_type"
+    cursur.execute(sql_from_oafeetype)
+    second_type_map = list(cursur.fetchall())
+    result = []
+    for second in second_type_map:
+        result.append((second[0],second[0]))
+    return tuple(result)
+    # print(tuple(result))
 
+def get_third_type():
+    cursur = creat_of_mysql()
+    sql_from_oafeetype = "SELECT DISTINCT(`third`)from oa_fee_type"
+    cursur.execute(sql_from_oafeetype)
+    second_type_map = list(cursur.fetchall())
+    result = []
+    for second in second_type_map:
+        result.append((second[0],second[0]))
+    return tuple(result)
+    # print(tuple(result))

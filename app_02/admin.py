@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from .models import OaWorkFlow, OaCondition, OaTransferring, OaApproverGroup
+from .models import OaWorkFlow, OaCondition, OaTransferring, OaApproverGroup,OaBank,OaFeeType,OaAccountCoding
 
 
 class OaWorkFlowAdmin(admin.ModelAdmin):
@@ -26,7 +26,28 @@ class OaApproverGroupAdmin(admin.ModelAdmin):
     list_per_page = 15
 
 
+class OaBankAdmin(admin.ModelAdmin):
+    search_fields = ('bank',)
+    list_display = ('id','bank','bankaccount','useCompany','subject')
+    list_per_page = 15
+
+
+class OaFeeTypeAdmin(admin.ModelAdmin):
+    search_fields = ('feeName','subject','third')
+    list_display = ('id','feeName','subject','third','seeCompany','seeDept','noDept','specialPerson','formids','crashFlow')
+    list_per_page = 15
+
+
+class OaAccountCodingAdmin(admin.ModelAdmin):
+    search_fields = ('name','coding')
+    list_display = ('id','name','coding','remark')
+    list_per_page = 15
+
 admin.site.register(OaWorkFlow, OaWorkFlowAdmin)
 admin.site.register(OaCondition, OaConditionAdmin)
 admin.site.register(OaTransferring, OaTransferringAdmin)
 admin.site.register(OaApproverGroup, OaApproverGroupAdmin)
+admin.site.register(OaBank,OaBankAdmin)
+admin.site.register(OaAccountCoding,OaAccountCodingAdmin)
+admin.site.register(OaFeeType,OaFeeTypeAdmin)
+
