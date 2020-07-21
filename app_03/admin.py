@@ -12,6 +12,7 @@ class ReadonlyFieldsMixin(object):
 # Register your models here.
 
 class PermissionAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
+    search_fields = ("ldap",)
     list_display = ("ldap","noter","admin")
     readonly_fields = ("ldap",)
     list_per_page = 15
@@ -19,6 +20,7 @@ class PermissionAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
 
 class TBSModelAdmin(ReadonlyFieldsMixin,admin.ModelAdmin):
     list_per_page = 15
+    search_fields = ("ldap","name")
     list_display = ("id","ldap","name","money","created_at","updated_at","company")
     readonly_fields = ("ldap",)
 
