@@ -120,7 +120,7 @@ DATABASES = {
         'NAME': 'ytktb',
         'USER': 'tb',
         'PASSWORD': 'tb123fenbi',
-        'HOST': 'op-servicedb-online ',
+        'HOST': 'op-servicedb-online',
         'PORT': '3306',
         'OPTIONS': {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
