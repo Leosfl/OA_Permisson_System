@@ -4,18 +4,19 @@ from .models import OaWorkFlow, OaCondition, OaTransferring, OaApproverGroup,OaB
 
 
 class OaWorkFlowAdmin(admin.ModelAdmin):
-    search_fields = ("flowname",)
+    search_fields = ("id","flowname",)
     list_display = ("id", "flowname", "TID", "tid", "flowtype")
     list_per_page = 15
 
 
 class OaConditionAdmin(admin.ModelAdmin):
-    search_fields = ("descripion", "afid")
+    search_fields = ('id',"descripion", "afid")
     list_display = ('id', 'descripion', 'afid', 'WorkFid', 'workfid', 'priority')
     list_per_page = 15
 
 
 class OaTransferringAdmin(admin.ModelAdmin):
+    search_fields = ("id","route")
     list_display = ('id', 'route','route_map',)
     list_per_page = 15
 

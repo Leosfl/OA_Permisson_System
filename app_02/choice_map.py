@@ -36,9 +36,9 @@ def workfid_to_route():
     sql_work_flow = "select id,tid from oa_work_flow"
     cursur.execute(sql_work_flow)
     id_wid = dict(cursur.fetchall())
-    result = {}
+    result = []
     for key, value in id_wid.items():
-        result[key] = route[value]
+        result.append((key,route[value]))
     return tuple(result)
 
 def trans_route(route):

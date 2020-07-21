@@ -24,9 +24,10 @@ class OaApproverGroup(models.Model):
 
 class OaCondition(models.Model):
     # id = models.IntegerField(primary_key=True)
+    choice_map.workfid_to_route()
     descripion = models.TextField("申请内容信息", blank=False, null=False)
     afid = models.IntegerField("报销类型", choices=choice_map.afid_to_formName(), blank=False, null=False)
-    workfid = models.IntegerField("对应工作流程", choices=choice_map.tid_to_route(), blank=False, null=False)
+    workfid = models.IntegerField("对应工作流程",choices=choice_map.workfid_to_route(),blank=False, null=False)
     priority = models.IntegerField("优先级", blank=False, null=False)
 
     def __str__(self):
