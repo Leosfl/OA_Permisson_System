@@ -3,7 +3,7 @@ import pymysql
 
 
 def creat_of_mysql():
-    db = pymysql.connect(host='10.11.61.112', port=3306, user='root', password='root', database='bxTest')
+    db = pymysql.connect(host='op-servicedb-online', port=3306, user='reimb', password='reimb', database='bx_reimb')
     cursur = db.cursor()
     return cursur
 
