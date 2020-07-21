@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'app_01',
     'app_02',
+    'app_03',
     'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -113,16 +114,31 @@ DATABASES = {
         'OPTIONS': {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
         }
+    },
+    'auth_db_3':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ytktb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '10.11.61.112',
+        'PORT': '3306',
+        'OPTIONS': {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 
+
+
 DATABASES_APPS_MAPPING = {
     'app_01':'auth_db',
-    'app_02':'auth_db_2'
+    'app_02':'auth_db_2',
+    'app_03':'auth_db_3',
 }
 
 DATABASE_ROUTERS = ['app_01.database_app_router.DatabaseAppsRouter',
-                    'app_02.database_app_router.DatabaseAppsRouter']
+                    'app_02.database_app_router.DatabaseAppsRouter',
+                    'app_03.database_app_router.DatabaseAppsRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
