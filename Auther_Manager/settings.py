@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'Auther_Manager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oa_django',
-        'USER':'root',
-        'PASSWORD':'root',
-        'HOST':'10.11.61.112',
+        'NAME': 'op_oa_auth',
+        'USER':'oaauth',
+        'PASSWORD':'iXeL_604',
+        'HOST':'op-oa-auth-mysql-writer',
         'PORT':'3306',
         'OPTIONS':{
               "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -96,9 +96,9 @@ DATABASES = {
     'auth_db':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ytkoa',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '10.11.61.112',
+        'USER': 'ytkoaonline',
+        'PASSWORD': 'ytkoaonline@ytk123',
+        'HOST': 'op-servicedb-online',
         'PORT': '3306',
         'OPTIONS': {
               "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -106,10 +106,10 @@ DATABASES = {
     },
     'auth_db_2':{
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bxTest',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '10.11.61.112',
+        'NAME': 'bx_reimb',
+        'USER': 'reimb',
+        'PASSWORD': 'reimb',
+        'HOST': 'op-servicedb-online',
         'PORT': '3306',
         'OPTIONS': {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -118,9 +118,9 @@ DATABASES = {
     'auth_db_3':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ytktb',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '10.11.61.112',
+        'USER': 'tb',
+        'PASSWORD': 'tb123fenbi',
+        'HOST': 'op-servicedb-online ',
         'PORT': '3306',
         'OPTIONS': {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
